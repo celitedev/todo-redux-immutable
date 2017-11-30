@@ -36,13 +36,13 @@ span.delete {
 span.check.completed {
   border-color: rgb(220, 220, 220);
   padding: 4px;
-  content: inline('./../../assets/check-gray.png');
+  background-color: rgb(234, 215, 215);
 }
 
 span.check:hover {
   border-color: rgb(205, 205, 205);
   padding: 4px;
-  content: inline('./../../assets/check-green.png');
+  background-color: rgb(234, 215, 215);
 }
 
 span.text {
