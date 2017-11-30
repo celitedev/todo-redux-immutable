@@ -5,6 +5,7 @@ const { BUILD_DIR, SRC_DIR } = require('./constants');
 const config = {
   name: 'development',
   entry: [
+    'babel-polyfill',
     'webpack-hot-middleware/client?reload=true',
     `${SRC_DIR}index.js`
   ],

@@ -10,9 +10,20 @@ class Todos extends Component {
     this.shouldComponentUpdate = shouldPureComponentUpdate.bind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchTodo();
+  }
+
   render() {
-    const { todos, completeTodo, deleteTodo } = this.props;
-    console.log('todos', todos);
+    const { todos, loading, completeTodo, deleteTodo } = this.props;
+    if (loading) {
+      return (
+        <div>
+          loading todos...
+        </div>
+      )
+    }
+
     return (
       <div>
         {todos.map(todo => (
@@ -20,7 +31,7 @@ class Todos extends Component {
             key={todo.get('id')}
             id={todo.get('id')}
             title={todo.get('title')}
-            complete={todo.get('complete')}
+            completed={todo.get('completed')}
             completeTodo={completeTodo}
             deleteTodo={deleteTodo}
           />
@@ -35,7 +46,8 @@ Todos.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
   completeTodo: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired
+  deleteTodo: PropTypes.func.isRequired,
+  fetchTodo: PropTypes.func.isRequired,
 };
 
 export default Todos;

@@ -5,6 +5,7 @@ const { BUILD_DIR, SRC_DIR } = require('./constants');
 const config = {
   name: 'production',
   entry: [
+    'babel-polyfill',
     `${SRC_DIR}index.js`
   ],
   output: {
@@ -12,15 +13,31 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.js$|.jsx$/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         include: SRC_DIR,
-        loaders: ['react-hot', 'babel']
-      },
-      {
+        loaders: ['babel-loader']
+      }, {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: (loader) => [
+                require('postcss-import')({ root: loader.resourcePath }),
+                require('postcss-url'),
+                require('postcss-assets'),
+                require('precss'),
+                require('postcss-cssnext')
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -28,13 +45,6 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     })
-  ],
-  postcss: webpackArg => [
-    require('postcss-import')({ addDependencyTo: webpackArg }),
-    require('postcss-url'),
-    require('postcss-assets'),
-    require('precss'),
-    require('postcss-cssnext')
   ],
   devtool: 'source-map'
 };

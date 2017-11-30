@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { completeTodo, deleteTodo } from './todosActions';
+import { completeTodo, deleteTodo, fetchTodo } from './todosActions';
 import Todos from './Todos.view';
 
 import { ALL, ACTIVE, COMPLETED } from './../../state/filterTypes';
@@ -9,9 +9,9 @@ const applyFilter = (todos, filter) => {
     case ALL:
       return todos;
     case ACTIVE:
-      return todos.filter(todo => !todo.get('complete'));
+      return todos.filter(todo => !todo.get('completed'));
     case COMPLETED:
-      return todos.filter(todo => todo.get('complete'));
+      return todos.filter(todo => todo.get('completed'));
     default:
       return todos;
   }
@@ -29,6 +29,9 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteTodo: id => {
     dispatch(deleteTodo(id));
+  },
+  fetchTodo: () => {
+    dispatch(fetchTodo());
   }
 });
 

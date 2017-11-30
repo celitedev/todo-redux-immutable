@@ -15,15 +15,15 @@ class Todo extends Component {
   deleteTodo() { this.props.deleteTodo(this.props.id); }
 
   render() {
-    const { title, complete } = this.props;
+    const { title, completed } = this.props;
     return (
       <div className={styles.todo}>
         <span
-          className={complete ? `${styles.check} ${styles.completed}` : styles.check}
+          className={completed ? `${styles.check} ${styles.completed}` : styles.check}
           onClick={this.completeTodo}
         />
         <span
-          className={complete ? `${styles.text} ${styles.completed}` : styles.text}
+          className={completed ? `${styles.text} ${styles.completed}` : styles.text}
         >
           {title}
         </span>
@@ -39,7 +39,7 @@ class Todo extends Component {
 Todo.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  complete: PropTypes.bool.isRequired,
+  completed: PropTypes.bool.isRequired,
   completeTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
 };
