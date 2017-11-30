@@ -21,7 +21,7 @@ class Todos extends Component {
         <div>
           loading todos...
         </div>
-      )
+      );
     }
 
     return (

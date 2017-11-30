@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './state/rootReducer.js';
-import mySaga from './sagas'
+import mySaga from './sagas';
 
 import { persistState } from 'redux-devtools';
 import DevTools from './DevTools';
@@ -41,7 +41,7 @@ const configureStore = initialState => {
       store.replaceReducer(nextRootReducer);
     });
   }
-  sagaMiddleware.run(mySaga)
+  sagaMiddleware.run(mySaga);
   store.runSaga = sagaMiddleware.run;
   return store;
 };

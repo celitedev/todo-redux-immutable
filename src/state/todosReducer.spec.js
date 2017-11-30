@@ -6,7 +6,7 @@ import { ADD_TODO } from './../app/input/inputActions';
 import { COMPLETE_TODO } from './../app/todos/todosActions';
 import { CLEAR_COMPLETED } from './../app/footer/footerActions';
 
-import Immutable, { Map, List } from 'immutable';
+import Immutable, { Map } from 'immutable';
 
 describe('Todos Reducer', () => {
   const testState1 = initialState.update('data', data => data.push(Map({

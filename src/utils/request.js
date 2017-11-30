@@ -38,7 +38,7 @@ export default function request(url, options = {}) {
     const res = await fetch(newUrl, options);
 
     if (res.status === 503) {
-      const err = pick(res, ['status', 'statusText']);
+      const err = 'internal server error';
       throw Object.assign(err, { message: 'Unable to handle the request.' });
     }
 
@@ -77,17 +77,11 @@ function checkStatus(response) {
   if (response.ok) { // response.status >= 200 && response.status < 300
     return response;
   }
-  
-  // details from `whatwg-fetch`
-  const err = pick(response, ['status', 'statusText']);
 
-  return response.json()
-    .then(json => {
-      // details from actual error response
-      throw Object.assign(err, pick(json.error, ['code', 'details', 'message', 'status', 'failedCount']));
-    }, () => {
-      throw Object.assign(err, { message: 'Failed to parse JSON' });
-    });
+  // details from `whatwg-fetch`
+  const err = 'internal server error';
+
+  return err;
 }
 
 export function serializeParams(obj) {

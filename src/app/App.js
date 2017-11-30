@@ -9,8 +9,7 @@ import Footer from './footer/Footer.container';
 
 class App extends Component {
   render() {
-    
-   return (
+    return (
       <div>
         <h1 className={styles.title}>Todo list</h1>
         <div className={styles.list}>
