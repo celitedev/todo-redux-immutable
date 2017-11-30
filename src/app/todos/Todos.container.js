@@ -18,7 +18,9 @@ const applyFilter = (todos, filter) => {
 };
 
 const mapStateToProps = state => ({
-  todos: applyFilter(state.get('todos'), state.get('filter'))
+  todos: applyFilter(state.getIn(['todos', 'data']), state.get('filter')),
+  loading: state.getIn(['todos', 'loading']),
+  error: state.getIn(['todos', 'error'])
 });
 
 const mapDispatchToProps = dispatch => ({

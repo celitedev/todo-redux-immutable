@@ -32,6 +32,8 @@ class Todos extends Component {
 
 Todos.propTypes = {
   todos: ImmutablePropTypes.list.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
   completeTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired
 };
