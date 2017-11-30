@@ -1,0 +1,54 @@
+div.footer {
+  --footer-height: 40px;
+  --footer-element-height: 22px;
+  --footer-element-margin: 9px;
+}
+
+div.footer {
+  position: relative;
+  height: var(--footer-height);
+  color: rgb(130, 130, 130);
+  font-size: 13px;
+}
+
+span.remaining {
+  float: left;
+  line-height: var(--footer-element-height);
+  margin: var(--footer-element-margin) 15px;
+}
+
+div.filters {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+span.filter {
+  margin: 0 3px;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: all .1s;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+span.filter.current {
+  border-color: rgb(243, 224, 224);
+  border-radius: 3.5px;
+}
+
+span.filter:hover {
+  color: rgb(89, 89, 89);
+}
+
+span.clear {
+  float: right;
+  line-height: var(--footer-element-height);
+  margin: var(--footer-element-margin) 15px;
+  cursor: pointer;
+  transition: all .1s;
+}
+
+span.clear:hover {
+  color: rgb(89, 89, 89);
+}

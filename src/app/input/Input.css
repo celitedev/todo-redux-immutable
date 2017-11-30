@@ -1,0 +1,44 @@
+:root {
+  --input-height: 56px;
+  --input-element-height: 55px;
+}
+
+div.input {
+  margin: 0;
+  height: var(--input-height);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  box-shadow: inset 0px -5.5px 8px -8px rgba(204, 204, 204, 1);
+}
+
+span.caret {
+  line-height: var(--input-element-height);
+  float: left;
+  height: 40px;
+  margin: 7px 0 5.5px 3px;
+  content: inline('./../../assets/caret.png');
+}
+
+span.spacer {
+  height: var(--input-element-height);
+  float: left;
+  width: 43px;
+  box-shadow: inset 0px -5.5px 8px -8px rgba(204, 204, 204, 1);
+}
+
+input.text {
+  float: left;
+  height: var(--input-element-height);
+  width: 400px;
+  margin: 0 20px 0 10px;
+  outline: none;
+  border: none;
+  color: rgb(89, 89, 89);
+  text-align: left;
+  font-size: 20px;
+  box-shadow: inset 0px -5.5px 8px -8px rgba(204, 204, 204, 1);
+}
+
+input.text::-webkit-input-placeholder { 
+  font-style: italic; 
+  color: rgb(220, 220, 220);
+}

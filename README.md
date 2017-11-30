@@ -1,2 +1,13 @@
-# todo-redux-immutable
-todo list with redux and immutable.js
+# todos-immutablejs
+Test project for Todo List, with Redux and Immutable.js.
+
+#### Getting Started
+```sh
+npm install
+npm run dev
+```
+
+#### Testing
+```sh
+npm test
+```
