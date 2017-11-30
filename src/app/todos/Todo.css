@@ -49,7 +49,7 @@ span.text {
   height: var(--todo-element-height);
   line-height: var(--todo-element-height);
   float: left;
-  max-width: 85%;
+  max-width: 70%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
