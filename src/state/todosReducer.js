@@ -1,30 +1,15 @@
 import { Map, List, fromJS } from 'immutable';
 
 import { ADD_TODO } from './../app/input/inputActions';
-import { COMPLETE_TODO, DELETE_TODO, FETCH_TODO_REQUEST, FETCH_TODO_SUCCESS, FETCH_TODO_FAIL } from './../app/todos/todosActions';
+import { COMPLETE_TODO,
+  DELETE_TODO,
+  FETCH_TODO_REQUEST,
+  FETCH_TODO_SUCCESS,
+  FETCH_TODO_FAIL
+} from './../app/todos/todosActions';
 import { CLEAR_COMPLETED } from './../app/footer/footerActions';
 
-export const initialTodos = [
-  {
-    id: 0,
-    title: 'Learn React & Redux',
-    completed: false
-  }, {
-    id: 1,
-    title: "Utilize Webpack's Hot Module Reloading",
-    completed: false
-  }, {
-    id: 2,
-    title: 'Set up Redux DevTools',
-    completed: false
-  }, {
-    id: 3,
-    title: 'Optimize using immutability :)',
-    completed: false
-  }
-];
-
-const initialState = fromJS({
+export const initialState = fromJS({
   loading: false,
   error: '',
   data: []
